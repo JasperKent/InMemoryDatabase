@@ -1,0 +1,42 @@
+﻿@model IEnumerable<InMemoryDatabase.Models.Book>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Books</h1>
+
+<p>
+    <a asp-action="Create">Create Sample</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Title
+            </th>
+            <th>
+                Year
+            </th>
+            <th>
+                Author
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @item.Title
+            </td>
+            <td>
+                @item.Year
+            </td>
+            <td>
+                @item.Author?.Name
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
